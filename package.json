@@ -1,0 +1,30 @@
+{
+  "name": "sql-assessment-wpx1",
+  "version": "1.0.0",
+  "description": "assesment for devmtn",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kale-stew/sql-assessment-WPX1.git"
+  },
+  "keywords": [
+    "sql",
+    "node"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kale-stew/sql-assessment-WPX1/issues"
+  },
+  "homepage": "https://github.com/kale-stew/sql-assessment-WPX1#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "massive": "^4.4.0"
+  }
+}
