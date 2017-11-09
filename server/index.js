@@ -29,6 +29,11 @@ app.post('/api/users', main_ctrl.createUser);
 app.post('/api/vehicles', main_ctrl.createCar);
 app.get('/api/user/:userId/vehiclecount', main_ctrl.getCarCount);
 app.get('/api/user/:userId/vehicle', main_ctrl.getCarsById);
+app.get('/api/vehicle', main_ctrl.getCarsByQuery);
+app.get('/api/newervehiclesbyyear', main_ctrl.getNewerCars);
+app.put('/api/vehicle/:vehicleId/user/:userId', main_ctrl.changeOwnership);
+app.delete('/api/user/:userId/vehicle/:vehicleId', main_ctrl.removeOwnership);
+app.delete('/api/vehicle/:vehicleId', main_ctrl.deleteCar);
 
 const PORT = process.env.PORT || 3000;
 app.listen( PORT, () => console.log(`Ship is docked at ${PORT} leagues.`) );

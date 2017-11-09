@@ -45,4 +45,48 @@ module.exports = {
             .catch( () => res.status(500).send() );
     },
 
+    getCarsByQuery: (req, res, next) => {
+        const db = req.app.get('db');
+        const { query } = req;
+        if (query.userEmail) {
+            return db.cars_by_email([ query.userEmail ])
+                .then( cars => res.status(200).send(cars) )
+                .catch( () => res.status(500).send() );
+        } else if (query.userFirstStart) {
+            return db.cars_by_letter([ query.userFirstStart + '%' ])
+                .then( cars => res.status(200).send(cars) )
+                .catch( () => res.status(500).send() );
+        }
+    },
+
+    getNewerCars: (req, res, next) => {
+        const db = req.app.get('db');
+        db.newer_cars_by_year()
+            .then( cars => res.status(200).send(cars) )
+            .catch( () => res.status(500).send() );
+    },
+
+    changeOwnership: (req, res, next) => {
+        const db = req.app.get('db');
+        const { params } = req;
+        db.change_owner([ params.vehicleId, params.userId ])
+            .then( cars => res.status(200).send(cars) )
+            .catch( () => res.status(500).send() );
+    },
+
+    removeOwnership: (req, res, next) => {
+        const db = req.app.get('db');
+        const { params } = req;
+        db.remove_owner([ params.vehicleId, params.userId ])
+            .then( cars => res.status(200).send(cars) )
+            .catch( () => res.status(500).send() );
+    },
+
+    deleteCar: (req, res, next) => {
+        const db = req.app.get('db');
+        const { params } = req;
+        db.remove_car([ params.vehicleId ])
+            .then( cars => res.status(200).send(cars) )
+            .catch( () => res.status(500).send() );
+    }
 }
